@@ -32,7 +32,10 @@ public class CardOrderServiceTest {
         options.addArguments("--disable-dev-shm-usage");
         options.addArguments("--no-sandbox");
         options.addArguments("--headless");
+        options.addArguments("--remote-allow-origins=*");
         driver = new ChromeDriver(options);
+        driver.get("http://localhost:9999/");
+
     }
     @AfterEach
     void tearDown() {
@@ -42,7 +45,6 @@ public class CardOrderServiceTest {
 
     @Test
     void positiveValue() {
-        driver.get("http://localhost:9999/");
         driver.findElement(By.cssSelector("[data-test-id=name] input")).sendKeys("Иван Васильев-Иванов");
         driver.findElement(By.cssSelector("[data-test-id=phone] input")).sendKeys("+79876545454");
         driver.findElement(By.cssSelector("[data-test-id=agreement]")).click();
