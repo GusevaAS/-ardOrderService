@@ -8,11 +8,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
-import java.sql.Driver;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class CardOrderServiceTest {
+public class CardOrderServiceTest1 {
 
     private WebDriver driver;
 
@@ -25,7 +23,8 @@ public class CardOrderServiceTest {
     void setUpClass() {
 
         driver = new ChromeDriver();
-            }
+    }
+
     @BeforeEach
     public void setUp() {
         ChromeOptions options = new ChromeOptions();
@@ -37,6 +36,7 @@ public class CardOrderServiceTest {
         driver.get("http://localhost:9999/");
 
     }
+
     @AfterEach
     void tearDown() {
         driver.quit();
@@ -48,7 +48,7 @@ public class CardOrderServiceTest {
         driver.findElement(By.cssSelector("[data-test-id=name] input")).sendKeys("Иван Васильев-Иванов");
         driver.findElement(By.cssSelector("[data-test-id=phone] input")).sendKeys("+79876545454");
         driver.findElement(By.cssSelector("[data-test-id=agreement]")).click();
-        driver.findElement(By.cssSelector("button")).click();
+        driver.findElement(By.cssSelector("button.button")).click();
         String expected = "Ваша заявка успешно отправлена! Наш менеджер свяжется с вами в ближайшее время.";
         String actual = driver.findElement(By.cssSelector("[data-test-id=order-success]")).getText().trim();
         assertEquals(expected, actual);
