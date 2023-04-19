@@ -13,28 +13,16 @@ public class CardOrderServiceTest2 {
 
     @BeforeAll
     public static void setUpAll() {
-
         WebDriverManager.chromedriver().setup();
-        if (System.getProperty("os.name").contains("Linux")) {
-            System.setProperty("webdriver.chrome.driver", "driver/linux/chromedriver");
-        } else {
-            System.setProperty("webdriver.chrome.driver", "driver/win/chromedriver.exe");
-        }
     }
 
     @BeforeEach
     public void setUp() {
         ChromeOptions options = new ChromeOptions();
-        options.addArguments("--headless");
+        options.setHeadless(true);
         driver = new ChromeDriver(options);
         driver.get("http://localhost:9999/");
     }
-
-//    @BeforeEach
-//    void setUpClass() {
-//
-//        driver = new ChromeDriver();
-//    }
 
     @AfterEach
     void tearDown() {
