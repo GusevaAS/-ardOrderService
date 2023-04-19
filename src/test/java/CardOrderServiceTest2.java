@@ -13,7 +13,13 @@ public class CardOrderServiceTest2 {
 
     @BeforeAll
     public static void setUpAll() {
+
         WebDriverManager.chromedriver().setup();
+        if (System.getProperty("os.name").contains("Linux")) {
+            System.setProperty("webdriver.chrome.driver", "driver/linux/chromedriver");
+        } else {
+            System.setProperty("webdriver.chrome.driver", "driver/win/chromedriver.exe");
+        }
     }
 
     @BeforeEach
