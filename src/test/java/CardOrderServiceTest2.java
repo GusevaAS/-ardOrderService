@@ -30,11 +30,11 @@ public class CardOrderServiceTest2 {
         driver.get("http://localhost:9999/");
     }
 
-    @BeforeEach
-    void setUpClass() {
-
-        driver = new ChromeDriver();
-    }
+//    @BeforeEach
+//    void setUpClass() {
+//
+//        driver = new ChromeDriver();
+//    }
 
     @AfterEach
     void tearDown() {

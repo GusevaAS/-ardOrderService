@@ -33,10 +33,10 @@ public class CardOrderServiceTest1 {
 
     }
 
-    @BeforeEach
-    void setUpClass() {
-        driver = new ChromeDriver();
-    }
+//    @BeforeEach
+//    void setUpClass() {
+//        driver = new ChromeDriver();
+//    }
 
     @AfterEach
     void tearDown() {
