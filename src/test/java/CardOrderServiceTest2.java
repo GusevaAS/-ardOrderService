@@ -15,17 +15,7 @@ public class CardOrderServiceTest2 {
     public static void setUpAll() {
 
         WebDriverManager.chromedriver().setup();
-        if (System.getProperty("os.name").contains("Linux")) {
-            System.setProperty("webdriver.chrome.driver", "driver/linux/chromedriver");
-        } else {
-            System.setProperty("webdriver.chrome.driver", "driver/win/chromedriver.exe");
-        }
-    }
-
-    @BeforeEach
-    void setUpClass() {
-
-        driver = new ChromeDriver();
+        System.setProperty("webdriver.chrome.driver", "driver/linux/chromedriver");
     }
 
     @BeforeEach
@@ -37,6 +27,12 @@ public class CardOrderServiceTest2 {
         options.addArguments("--remote-allow-origins=*");
         driver = new ChromeDriver(options);
         driver.get("http://localhost:9999/");
+    }
+    
+        @BeforeEach
+    void setUpClass() {
+
+        driver = new ChromeDriver();
     }
 
     @AfterEach
