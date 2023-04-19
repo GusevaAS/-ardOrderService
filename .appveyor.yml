@@ -13,8 +13,8 @@ install:
   - java -jar ./artifacts/app-order.jar &
 
 build_script:
-  - chmod +x gradlew
-  - chmod +x driver/linux/chromedriver
-  - ./gradlew test --info  # запускаем тест, флаг --info позволяет выводить больше информации
+   - chmod +x driver/linux/chromedriver
+   - chmod +x gradlew
+   - ./gradlew test --info  # запускаем тест, флаг --info позволяет выводить больше информации
 
 
