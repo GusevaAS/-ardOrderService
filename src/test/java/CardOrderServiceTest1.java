@@ -17,17 +17,7 @@ public class CardOrderServiceTest1 {
     @BeforeAll
     public static void setUpAll() {
         WebDriverManager.chromedriver().setup();
-        if (System.getProperty("os.name").contains("Linux")) {
-            System.setProperty("webdriver.chrome.driver", "driver/linux/chromedriver");
-        } else {
-            System.setProperty("webdriver.chrome.driver", "driver/win/chromedriver.exe");
-        }
-    }
-
-    @BeforeEach
-    void setUpClass() {
-
-        driver = new ChromeDriver();
+        System.setProperty("webdriver.chrome.driver", "driver/linux/chromedriver");
     }
 
     @BeforeEach
@@ -40,6 +30,11 @@ public class CardOrderServiceTest1 {
         driver = new ChromeDriver(options);
         driver.get("http://localhost:9999/");
 
+    }
+    
+    @BeforeEach
+    void setUpClass() {
+        driver = new ChromeDriver();
     }
 
     @AfterEach
