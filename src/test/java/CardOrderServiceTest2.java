@@ -1,8 +1,5 @@
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -97,7 +94,6 @@ public class CardOrderServiceTest2 {
     void shouldInactiveCheckBox() {
         driver.findElement(By.cssSelector("[data-test-id=name] input")).sendKeys("Иванов Петя");
         driver.findElement(By.cssSelector("[data-test-id=phone] input")).sendKeys("89876545454");
-//        driver.findElement(By.cssSelector("[data-test-id=agreement]")).click();
         driver.findElement(By.cssSelector("button.button")).click();
         String expected = "Я соглашаюсь с условиями обработки и использования моих персональных данных и разрешаю сделать запрос в бюро кредитных историй";
         String actual = driver.findElement(By.cssSelector("[data-test-id=agreement] .checkbox__text")).getText().trim();
